@@ -1,0 +1,49 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="panel panel-primary admins">
+    <div class="panel-heading">
+        <!--SEARCH ADD-BUTTON-->
+        <div class="row">
+            <div class="title col-md-3 col-sm-4 col-xs-6">Адміністратори</div>
+            <div class="pull-right">
+				<button class="add-entity btn btn-success" ng-click="admins.showSaveForm(null, 'Реєстрація')" title="Додати адміністратора">
+					<i class="glyphicon glyphicon-plus"></i>
+				</button>
+			</div>
+			<div class="search col-md-3 col-sm-4 col-xs-4 pull-right">
+				<input class="form-control" type="text" ng-model="search" placeholder="Пошук">
+			</div>
+        </div>
+     </div>
+    <!--DATA TABLE-->
+    <div class="panel-body">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th class="clip" class="header" ng-repeat="headerElement in admins.headElements">{{ ::headerElement }}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr ng-class-odd="'odd'" ng-repeat="admin in admins.list | orderBy: 'username' | filter: search">
+					<td><span ng-show=admin.logged class="online" title="online">&#9899</span></td>
+					<td>{{ ::admin.username }}</td>
+					<td>{{ ::admin.email }}</td>
+					<td><i>{{ admin.last_login }}</i></td>
+					<td>{{ admin.logins }}</td>
+					<td class="pull-right">
+						<button class="btn btn-info" ng-click="admins.showSaveForm(admin, 'Редагування')"
+								title="Редагувати {{ ::admin.username }}">
+							<i class="glyphicon glyphicon-pencil"></i>
+						</button>
+						<button class="btn btn-info"  ng-click="admins.removeAdmin(admin)"
+								title="Видалити {{ ::admin.username }}">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+					</td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+</div>

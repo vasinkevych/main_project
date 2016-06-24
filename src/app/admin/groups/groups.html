@@ -1,0 +1,150 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="panel panel-primary reports">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="title col-xs-12">
+                Групи
+                <span ng-if="groups.showFacultyTitle"> факультету "{{ groups.associativeFaculty[groups.state_id] }}"</span>
+                <span ng-if="groups.showSpecialityTitle"> спеціальності "{{ groups.associativeSpeciality[groups.state_id] }}"</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 pull-right">
+<!--SEARCH, FILTER-->
+                <div ng-show="groups.showFilterOverAction">
+                    <div class="col-md-3">
+                        <input type="text"
+                               ng-model="search.group_name"
+                               class="form-control"
+                               placeholder="Пошук по назві групи"
+                               ng-keyup="groups.checkForError()">
+                    </div>
+                    <div class="col-md-4" ng-if="!groups.hideSelect">
+                        <select class="form-control select"
+                                ng-model="groups.selectedFaculty"
+                                ng-options="faculty.faculty_id as faculty.faculty_name for faculty in groups.faculties"
+                                ng-change="groups.getGroupsByFaculty(groups.selectedFaculty)">
+                            <option value="">Виберіть факультет</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4" ng-if="!groups.hideSelect">
+                        <select class="form-control select"
+                                ng-model="groups.selectedSpeciality"
+                                ng-options="speciality.speciality_id as speciality.speciality_name for speciality in groups.specialities"
+                                ng-change="groups.getGroupsBySpeciality(groups.selectedSpeciality)">
+                            <option value="">Виберіть спецальність</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1 pull-right">
+                        <button class="btn btn-success" ng-if="!groups.hideSelect" ng-click="groups.toggleFilterAction()" title="Додати нову групу">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                    </div>
+                </div>
+<!--EDIT/ADD FORM-->
+                <form name="actionForm" class="row" ng-submit="groups.saveGroup(actionForm)" ng-hide="groups.showFilterOverAction">
+                    <div class="col-md-12">
+                        <div class="col-md-10 form-group has-success">
+                            <input type="text"
+                                   name="groupName"
+                                   class="form-control"
+                                   ng-model="groups.group.group_name"
+                                   ng-required="true"
+                                   ng-pattern="/^[А-ЯІЄЇ]{2,3}[А-ЯІЄЇa-яієї]?-\d{2}[мс]?-?\d{0,2}[мс]?$/"
+                                   placeholder="введіть назву групи" name="groupName">
+                            <span class="error-message" ng-show="actionForm.groupName.$dirty && actionForm.groupName.$invalid">
+                                Помилка: некоректна назва групи
+                            </span>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-success" title="Зберегти" ng-disabled="groups.allowAdd()">
+                                <i class="glyphicon glyphicon-floppy-saved"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <select class="form-control select"
+                                    name="facultyName"
+                                    ng-model="groups.group.faculty_id"
+                                    ng-options="faculty.faculty_id as faculty.faculty_name for faculty in groups.faculties">
+                                <option value="">Виберіть факультет</option>
+                            </select>
+                            <span class="error-message" ng-show="actionForm.facultyName.$dirty && (groups.group.faculty_id == undefined)">
+                                Помилка: виберіть факультет
+                            </span>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <select class="form-control select"
+                                    name="specialityName"
+                                    ng-model="groups.group.speciality_id"
+                                    ng-options="speciality.speciality_id as speciality.speciality_name for speciality in groups.specialities">
+                                <option value="">Виберіть спецальність</option>
+                            </select>
+                            <span class="error-message" ng-show="actionForm.specialityName.$dirty && (groups.group.speciality_id == undefined)">
+                                Помилка: виберіть спеціальність
+                            </span>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="reset" class="btn btn-danger" ng-click="groups.toggleFilterAction()" title="Відмінити">
+                                <i class="glyphicon glyphicon-floppy-remove"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!--TABLE-->
+    <div class="panel-body">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th ng-repeat="header in groups.headers">{{ ::header }}</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody id="table">
+                <tr ng-repeat="group in groups.filtered = (groups.list | filter:search) | startFrom:(groups.currentPage-1)*groups.entryLimit | limitTo:groups.entryLimit">
+                    <td>
+                        {{ ::group.group_name }}
+                    </td>
+                    <td>{{ ::groups.associativeFaculty[group.faculty_id] }}</td>
+                    <td>{{ ::groups.associativeSpeciality[group.speciality_id] }}</td>
+                    <td class="pull-right">
+                        <!--<button >-->
+                            <a title="Переглянути студентів" class="btn btn-info" href="#" ui-sref="admin.students({group_id: group.group_id})">
+                                <i class="fa fa-users"></i>
+                            </a>
+                            <a title="Переглянути розклад проведення тестувань" class="btn btn-info" href="#" ui-sref="admin.scheduleForEntity({entity: 'group', entity_id: group.group_id})">
+                                <i class="fa fa-calendar-check-o"></i>
+                            </a>
+                        <!--</button>-->
+                        <button ng-if="!groups.hideSelect" title="Редагувати атрибути групи" class="btn btn-info" ng-click="groups.toggleFilterAction(group)">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                        </button>
+                        <button ng-if="!groups.hideSelect" title="Видалити групу" class="btn btn-info" ng-click="groups.removeGroup(group)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="alert alert-danger" ng-show="groups.showError">Не знайдено груп з заданими параметрами</td>
+                </tr>
+            </tbody>
+        </table>
+<!--PAGINATION-->
+        <uib-pagination class="my-pagination" ng-show="groups.filtered.length > groups.entryLimit"
+                        boundary-links="true"
+                        items-per-page="groups.entryLimit"
+                        current-page="groups.currentPage"
+                        max-size="groups.maxSize"
+                        total-items="groups.filtered.length"
+                        ng-model="groups.currentPage"
+                        first-text="&#xf049;"
+                        previous-text="&#xf048;"
+                        next-text="&#xf051;"
+                        last-text="&#xf050;">
+        </uib-pagination>
+    </div>
+</div>

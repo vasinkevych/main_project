@@ -1,0 +1,23 @@
+<div class="my-app-name-container container-fluid">
+  <div class="modal-header dialog-header" ng-if="dialogCtrl.data.title">
+    <button type="button" class="close" data-dismiss="modal" ng-click="$dismiss();">
+      <span>&times;</span>
+    </button>
+    <h4 class="modal-title" ng-bind="dialogCtrl.data.title"></h4>
+  </div>
+  <div class="modal-body">
+    <i class="pull-left dialog-icon" ng-class="dialogCtrl.data.iconStyles" ng-if="dialogCtrl.data.iconStyles"></i>
+    <div class="dialog-summary" ng-bind-html="dialogCtrl.data.body"></div>
+      <select name="tests" ng-if="dialogCtrl.data.availableTest"
+            ng-options="test.test_id as test.test_name for test in dialogCtrl.data.availableTest"
+            ng-model="dialogCtrl.data.buttons[0].value">
+        <option value="" disabled selected>Виберіть тест</option>
+        </select>
+  </div>
+  <div class="modal-footer">
+    <button ng-repeat="button in dialogCtrl.data.buttons"
+            class="btn" ng-class="button.type ? 'btn-' + button.type : 'btn-default'"
+            ng-click="dialogCtrl.return(button)"
+            ng-bind="button.label"></button>
+  </div>
+</div>

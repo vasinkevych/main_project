@@ -1,0 +1,53 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+            <div class="title">
+                {{testPlayer.testInfo.test_name}}
+            </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <span class="glyphicon glyphicon-time">
+                        <span class="timer" timer duration="testPlayer.testInfo.time_for_test"
+                              is-test-finish="testPlayer.isTestFinish" finish-test="testPlayer.finishTest()"></span>
+                    </span>
+                </div>
+                <div>
+                    <button id="finish" class="btn btn-success btn-block" ng-click="testPlayer.confirmFinishTest()"
+                            title="Завершити тестування">
+                        <i class="fa fa-check-square-o"> Завершити</i>
+                    </button>
+                </div>
+                <div>
+                    <div class="btn-toolbar">
+                        <button class="btn btn-info btn-group-sm" ng-repeat="question in testPlayer.test"
+                                ng-click="testPlayer.showQuestion(question)" button-style>
+                            {{$index + 1}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <div class="row">
+                    <span>{{testPlayer.question.question_text}}</span>
+                </div>
+                <div class="checkbox" ng-repeat="answer in testPlayer.question.answers">
+                    <input ng-if="testPlayer.isSimpleTypeOfQuestion(testPlayer.question)" type="checkbox" id="c{{$index + 1}}"
+                           ng-checked="{{answer.checked}}" ng-model="answer.checked"
+                           ng-click="testPlayer.uncheckOtherAnswers(answer, testPlayer.question)"/>
+                    <input ng-if="testPlayer.isMultiTypeOfQuestion(testPlayer.question)" type="checkbox" id="c{{$index + 1}}"
+                           ng-checked="{{answer.checked}}" ng-model="answer.checked"
+                           ng-click="answer.checked!=answer.checked"/>
+                    <label for="c{{$index + 1}}">
+                        <span>{{answer.answer_text}}</span>
+                        <img ng-hide="answer.attachment==='' || answer.attachment==='added'" class="img-responsive"
+                             ng-src="{{answer.attachment}}" width="400" height="200" alt="Зображення"/>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

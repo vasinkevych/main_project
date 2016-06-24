@@ -1,0 +1,65 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 title">Предмети</div>
+            <div class="col-xs-12 col-sm-9 pull-right">
+                <div class="col-xs-3 col-sm-1 pull-right">
+                    <button class="btn btn-success" ng-click="subjects.showForm()" title="Додати предмет">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </button>
+                </div>
+                <div class="col-xs-9 col-sm-4 pull-right">
+                    <input class="form-control" type="text" ng-model="search" placeholder="Пошук на сторінці">
+                </div>
+            </div>
+        </div>
+        <div ng-include="'app/admin/subjects/save-subject.html'"></div>
+    </div>
+    <!--DATA TABLE-->
+    <div class="panel-body">
+        <table class="table table-striped table-condensed">
+            <tbody>
+            <thead>
+            <tr>
+                <th class="clip header" ng-repeat="headerElement in subjects.headElements">{{::headerElement}}</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-class-odd="'odd'" ng-repeat="subject in subjects.list | orderBy:'subject_name' | filter:search">
+                <td class="clip">{{::subject.subject_name}}</td>
+                <td class="clip">{{::subject.subject_description}}</a></td>
+                <td class="pull-right">
+                    <button class="btn btn-info" ui-sref="admin.tests({subject_id: subject.subject_id})"
+                            title="Перейти до управління тестами"><i class="fa fa-list"></i> Tести
+                    </button>
+                    <button class="btn btn-info" ui-sref="admin.scheduleForEntity({entity: 'subject', entity_id: subject.subject_id})"
+                            title="Розклад тестування">
+                        <i class="fa fa-calendar-check-o"></i>
+                    </button>
+                    <button class="btn btn-info" ng-click="subjects.showForm(subject)"
+                            title="Редагувати {{::subject.subject_name}}">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </button>
+                    <button class="btn btn-info" ng-click="subjects.removeSubject(subject)"
+                                     title="Видалити {{::subject.subject_name}}">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <uib-pagination ng-show="subjects.showPagination" total-items="subjects.totalItems" class="my-pagination"
+                        ng-change="subjects.pageChanged()"
+                        ng-model="subjects.currentPage"
+                        max-size="subjects.maxSize"
+                        boundary-link-numbers="true"
+                        items-per-page="subjects.entitiesPerPage"
+                        previous-text="&#xf048;"
+                        next-text="&#xf051;">
+        </uib-pagination>
+    </div>
+</div>

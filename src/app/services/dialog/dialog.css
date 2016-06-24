@@ -1,0 +1,19 @@
+.modal-backdrop {
+  bottom: 0;
+  position: fixed;
+}
+
+.dialog-icon {
+  width: 35px;
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+.dialog-summary {
+  width: calc(100% - 35px);
+  margin-left: 35px;
+  word-wrap: break-word;
+}
+.dialog-header {
+  word-wrap: break-word;
+}

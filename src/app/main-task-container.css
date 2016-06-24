@@ -1,0 +1,846 @@
+.my-app-name-container h1 small,
+.my-app-name-container h2 small,
+.my-app-name-container h3 small,
+.my-app-name-container h4 small,
+.my-app-name-container h5 small,
+.my-app-name-container h6 small,
+.my-app-name-container .h1 small,
+.my-app-name-container .h2 small,
+.my-app-name-container .h3 small,
+.my-app-name-container .h4 small,
+.my-app-name-container .h5 small,
+.my-app-name-container .h6 small,
+.my-app-name-container h1 .small,
+.my-app-name-container h2 .small,
+.my-app-name-container h3 .small,
+.my-app-name-container h4 .small,
+.my-app-name-container h5 .small,
+.my-app-name-container h6 .small,
+.my-app-name-container .h1 .small,
+.my-app-name-container .h2 .small,
+.my-app-name-container .h3 .small,
+.my-app-name-container .h4 .small,
+.my-app-name-container .h5 .small,
+.my-app-name-container .h6 .small {
+  color: #9D9D9D;
+}
+
+.my-app-name-container .btn {
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* button shadow */
+}
+.my-app-name-container .btn:focus,
+.my-app-name-container .btn:active:focus,
+.my-app-name-container .btn.active:focus,
+.my-app-name-container .btn.focus,
+.my-app-name-container .btn:active.focus,
+.my-app-name-container .btn.active.focus {
+  outline: none;
+  box-shadow: 0 7px 7px rgba(0,0,0,0.5);
+}
+.my-app-name-container .btn:hover,
+.my-app-name-container .btn:focus,
+.my-app-name-container .btn.focus {
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* button shadow */
+}
+.my-app-name-container .btn:active,
+.my-app-name-container .btn.active {
+  border: none;
+}
+
+
+/* class btn-primary */
+.my-app-name-container .btn-primary {
+  border: none;
+  background-color: #03588C;
+}
+.my-app-name-container .btn-primary:focus,
+.my-app-name-container .btn-primary.focus {
+  border: none;
+  background-color: #4E97D7;
+}
+.my-app-name-container .btn-primary:hover {
+  background-color: #4E97D7;
+}
+.my-app-name-container .btn-primary:active:hover,
+.my-app-name-container .btn-primary.active:hover,
+.my-app-name-container .open > .dropdown-toggle.btn-primary:hover,
+.my-app-name-container .btn-primary:active:focus,
+.my-app-name-container .btn-primary.active:focus,
+.my-app-name-container .open > .dropdown-toggle.btn-primary:focus,
+.my-app-name-container .btn-primary:active.focus,
+.my-app-name-container .btn-primary.active.focus,
+.my-app-name-container .open > .dropdown-toggle.btn-primary.focus {
+  background-color: #64ADF2; /* button collor */
+}
+
+/* class btn-default */
+.my-app-name-container .btn-default {
+  background-color: #BDBDBD;
+}
+.my-app-name-container .btn-default:focus,
+.my-app-name-container .btn-default.focus {
+  background-color: #E6E6E6;
+}
+.my-app-name-container .btn-default:hover {
+  background-color: #CCCCCC;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* button shadow */
+}
+.my-app-name-container .btn-default:active,
+.my-app-name-container .btn-default.active,
+.my-app-name-container .open > .dropdown-toggle.btn-default {
+  background-color: #E6E6E6;
+}
+.my-app-name-container .btn-default:active:hover,
+.my-app-name-container .btn-default.active:hover,
+.my-app-name-container .open > .dropdown-toggle.btn-default:hover,
+.my-app-name-container .btn-default:active:focus,
+.my-app-name-container .btn-default.active:focus,
+.my-app-name-container .open > .dropdown-toggle.btn-default:focus,
+.my-app-name-container .btn-default:active.focus,
+.my-app-name-container .btn-default.active.focus,
+.my-app-name-container .open > .dropdown-toggle.btn-default.focus {
+  background-color: #F0F0F0;
+  box-shadow: 0 7px 7px rgba(0,0,0,0.5); /* button shadow */
+}
+
+/* class btn-success */
+.my-app-name-container .btn-success {
+  background-color: #4CAF50;
+}
+.my-app-name-container .btn-success:focus,
+.my-app-name-container .btn-success.focus {
+  background-color: #71C174;
+}
+.my-app-name-container .btn-success:hover {
+  background-color: #5FB962;
+}
+.my-app-name-container .btn-success:active,
+.my-app-name-container .btn-success.active,
+.my-app-name-container .open > .dropdown-toggle.btn-success {
+  background-color: #95D097;
+}
+.my-app-name-container .btn-success:active:hover,
+.my-app-name-container .btn-success.active:hover,
+.my-app-name-container .open > .dropdown-toggle.btn-success:hover,
+.my-app-name-container .btn-success:active:focus,
+.my-app-name-container .btn-success.active:focus,
+.my-app-name-container .open > .dropdown-toggle.btn-success:focus,
+.my-app-name-container .btn-success:active.focus,
+.my-app-name-container .btn-success.active.focus,
+.my-app-name-container .open > .dropdown-toggle.btn-success.focus {
+  background-color: #83C985;
+}
+.my-app-name-container .btn-success:active,
+.my-app-name-container .btn-success.active,
+.my-app-name-container .open > .dropdown-toggle.btn-success {
+  background-image: none;
+}
+.my-app-name-container .btn-success.disabled:hover,
+.my-app-name-container .btn-success[disabled]:hover,
+.my-app-name-container fieldset[disabled] .btn-success:hover,
+.my-app-name-container .btn-success.disabled:focus,
+.my-app-name-container .btn-success[disabled]:focus,
+.my-app-name-container fieldset[disabled] .btn-success:focus,
+.my-app-name-container .btn-success.disabled.focus,
+.my-app-name-container .btn-success[disabled].focus,
+.my-app-name-container fieldset[disabled] .btn-success.focus {
+  background-color: #95D097;
+}
+.my-app-name-container .panel-heading .row .col-xs-12.col-md-6.pull-right {
+  padding-right: 40px;
+}
+.my-app-name-container #finish {
+  max-width: 240px;
+}
+
+/* class btn-info */
+.my-app-name-container .btn-info {
+  background-color: #218DA6;
+}
+.my-app-name-container .btn-info:focus,
+.my-app-name-container .btn-info.focus {
+  background-color: #3FBDD9;
+}
+.my-app-name-container .btn-info:hover {
+  background-color: #3FBDD9;
+}
+.my-app-name-container .btn-info:active,
+.my-app-name-container .btn-info.active,
+.my-app-name-container .open > .dropdown-toggle.btn-info {
+  background-color: #B49374;
+}
+.my-app-name-container .btn-info:active:hover,
+.my-app-name-container .btn-info.active:hover,
+.my-app-name-container .open > .dropdown-toggle.btn-info:hover,
+.my-app-name-container .btn-info:active:focus,
+.my-app-name-container .btn-info.active:focus,
+.my-app-name-container .open > .dropdown-toggle.btn-info:focus,
+.my-app-name-container .btn-info:active.focus,
+.my-app-name-container .btn-info.active.focus,
+.my-app-name-container .open > .dropdown-toggle.btn-info.focus {
+  background-color: #7FD3E6;
+  box-shadow: 0 7px 7px rgba(0,0,0,0.5); /* button shadow */
+}
+.my-app-name-container .btn-info:active,
+.my-app-name-container .btn-info.active,
+.my-app-name-container .open > .dropdown-toggle.btn-info {
+  background-image: none;
+  background-color: #B49374;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* button shadow */
+}
+
+/* class btn-warning */
+.my-app-name-container .btn-warning {
+  background-color: #FF9800;
+}
+.my-app-name-container .btn-warning:focus,
+.my-app-name-container .btn-warning.focus {
+  background-color: #FFA726;
+}
+.my-app-name-container .btn-warning:hover {
+  background-color: #FFA726;
+}
+.my-app-name-container .btn-warning:active,
+.my-app-name-container .btn-warning.active,
+.my-app-name-container .open > .dropdown-toggle.btn-warning {
+  background-color: #FFB74D;
+}
+.my-app-name-container .btn-warning:active:hover,
+.my-app-name-container .btn-warning.active:hover,
+.my-app-name-container .open > .dropdown-toggle.btn-warning:hover,
+.my-app-name-container .btn-warning:active:focus,
+.my-app-name-container .btn-warning.active:focus,
+.my-app-name-container .open > .dropdown-toggle.btn-warning:focus,
+.my-app-name-container .btn-warning:active.focus,
+.my-app-name-container .btn-warning.active.focus,
+.my-app-name-container .open > .dropdown-toggle.btn-warning.focus {
+  background-color:  #FFB74D;
+}
+
+/* btn-danger*/
+.my-app-name-container.btn-danger {
+  background-color: #C44945;
+}
+.my-app-name-container .btn-danger:focus,
+.my-app-name-container .btn-danger.focus {
+  background-color: #E35752;
+}
+.my-app-name-container .btn-danger:hover {
+  background-color: #E35752;
+}
+.my-app-name-container .btn-danger:active,
+.my-app-name-container .btn-danger.active,
+.my-app-name-container .open > .dropdown-toggle.btn-danger {
+  background-color: #FD615C;
+}
+.my-app-name-container .btn-danger:active:hover,
+.my-app-name-container .btn-danger.active:hover,
+.my-app-name-container .open > .dropdown-toggle.btn-danger:hover,
+.my-app-name-container .btn-danger:active:focus,
+.my-app-name-container .btn-danger.active:focus,
+.my-app-name-container .open > .dropdown-toggle.btn-danger:focus,
+.my-app-name-container .btn-danger:active.focus,
+.my-app-name-container .btn-danger.active.focus,
+.my-app-name-container .open > .dropdown-toggle.btn-danger.focus {
+  background-color: #FD615C;
+}
+
+/* pagination */
+.my-app-name-container .pagination {
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+}
+
+.my-app-name-container .pagination > li > a,
+.pagination > li > span {
+  border: none;
+}
+.my-app-name-container .pagination > li:first-child > a,
+.my-app-name-container .pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .pagination > li:last-child > a,
+.my-app-name-container .pagination > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.my-app-name-container .pagination > li > a:hover,
+.my-app-name-container .pagination > li > span:hover,
+.my-app-name-container .pagination > li > a:focus,
+.my-app-name-container .pagination > li > span:focus {
+  box-shadow: 0 7px 7px rgba(0,0,0,0.5); /* shadow */
+}
+.my-app-name-container .pagination-lg > li:first-child > a,
+.my-app-name-container .pagination-lg > li:first-child > span {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .pagination-lg > li:last-child > a,
+.my-app-name-container .pagination-lg > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* my-pagination */
+.my-app-name-container .my-pagination {
+  font-family: Helvetica, FontAwesome;
+} 
+
+/* table */
+.my-app-name-container .table {
+  box-shadow: 0 3px 3px rgba(0,0,0,0.5); /* shadow */
+  background-color: #CEE3F6;
+}
+.my-app-name-container .table td {
+  border: none;
+  vertical-align: middle;
+}
+.my-app-name-container .table tr:hover {
+  background-color: #A9D0F5;
+}
+/* buttons in table */
+.my-app-name-container .table .btn {
+  margin-bottom: 4px;
+}
+
+/* panel */
+.my-app-name-container .panel {
+  background-color: #F2E0C9;
+  border: none;
+  border-radius: 0;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+}
+.my-app-name-container .panel .panel-heading {
+  padding: 15px 20px;
+  border-radius: 0;
+  border-right: 1px solid transparent;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+.my-app-name-container .panel-heading .row {
+  border-radius: 0;
+}
+.my-app-name-container .panel-body {
+  padding: 15px 25px;
+  background-color: #CEE3F6;
+  border: 1px solid transparent;
+}
+.my-app-name-container .panel-primary > .panel-heading {
+  background-color: #03588C;
+}
+.my-app-name-container .panel-footer {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .panel > .list-group:first-child .list-group-item:first-child,
+.my-app-name-container .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.my-app-name-container .panel > .list-group:last-child .list-group-item:last-child,
+.my-app-name-container .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.my-app-name-container .panel > .table:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.my-app-name-container .panel > .table:first-child > thead:first-child > tr:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
+.my-app-name-container .panel > .table:first-child > tbody:first-child > tr:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.my-app-name-container .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.my-app-name-container .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.my-app-name-container .panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.my-app-name-container .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: 0;
+}
+.my-app-name-container .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.my-app-name-container .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.my-app-name-container .panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.my-app-name-container .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.my-app-name-container .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: 0;
+}
+.my-app-name-container .panel > .table:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .panel > .table:last-child > tbody:last-child > tr:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
+.my-app-name-container .panel > .table:last-child > tfoot:last-child > tr:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.my-app-name-container .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.my-app-name-container .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.my-app-name-container .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: 0;
+}
+.my-app-name-container .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.my-app-name-container .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.my-app-name-container .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.my-app-name-container .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.my-app-name-container .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: 0;
+}
+.my-app-name-container .panel-group .panel {
+  border-radius: 0;
+}
+.my-app-name-container .panel-primary .panel-heading .row .col-xs-9.col-md-6 {
+  padding-left: 0;
+}
+.my-app-name-container .panel-body .btn.btn-danger.pull-right,
+.my-app-name-container .panel-body .btn.btn-info.pull-right {
+  margin-right: 4px;
+}
+.my-app-name-container .panel-primary .btn-file {
+  margin-bottom: 4px;
+}
+.my-app-name-container .panel-primary .panel-heading .row .col-xs-12.col-md-1 .btn-success {
+  margin-bottom: 4px;
+}
+.my-app-name-container .panel-primary .pull-right .row .col-md-12 .btn-success {
+  margin-bottom: 10px;
+}
+.my-app-name-container .panel-primary .panel-heading .row .btn-success {
+  height: 33px;
+}
+.my-app-name-container .row {
+  padding-left: 10px;
+}
+.my-app-name-container .row .btn-success {
+  margin-right: 0;
+}
+.my-app-name-container .panel .table {
+  box-shadow: none; /* shadow */
+  border-radius: 0;
+}
+.my-app-name-container .col-xs-12.col-md-12.pull-right {
+  padding: 10px 0;
+}
+.my-app-name-container .panel.panel-primary .panel-heading .col-md-8 {
+  padding-left: 0;
+}
+.my-app-name-container .panel.panel-primary .panel-heading .row .col-md-7 .col-md-4,
+.my-app-name-container .panel-primary .panel-heading .row .col-md-9 .col-md-12 .row  {
+  padding-left: 0;
+}
+.my-app-name-container .panel.panel-primary .panel-heading .row.row-user {
+  padding-left: 25px;
+}
+.my-app-name-container h4.title,
+ .my-app-name-container .panel-primary .panel-heading .row h4 {
+  padding-left: 15px;
+}
+.my-app-name-container .test-detailes-enforce {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.my-app-name-container .panel-primary .panel-heading .col-md-10 .col-md-12 .row,
+.my-app-name-container .panel-primary .panel-heading .col-md-10 .col-md-12 .col-md-4.form-group:first-child,
+ .my-app-name-container .panel-primary .panel-heading .row .col-md-9 {
+  padding-left: 0;
+}
+.my-app-name-container.panel-primary .panel-heading .pull-right .row .col-md-12 .col-md-10.form-group {
+  padding-left: 10px;
+}
+.my-app-name-container .panel-primary .panel-heading .row .search.pull-right {
+  padding-right: 30px;
+}
+
+/* form-control */
+.my-app-name-container .form-control {
+ border: 1px solid transparent;
+ height: 33px;
+ border-bottom: 2px solid transparent;
+ margin-bottom: 10px;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+  outline: none;
+}
+.my-app-name-container .form-control:focus {
+  border-bottom: 2px solid transparent;
+  background-color: #F2F2F2;
+  -webkit-box-shadow: 0 4px 4px rgba(0,0,0,0.5);
+          box-shadow: 0 4px 4px rgba(0,0,0,0.5);
+}
+
+.my-app-name-container textarea.form-control {
+  resize: none;
+  height: auto;
+}
+
+/* input-group */
+.my-app-name-container .input-group,
+.my-app-name-container .input-group-addon {
+  border-radius: 0;
+}
+.my-app-name-container .input-group-addon {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+  border: none;
+}
+
+/* input-group-addon */
+.my-app-name-container .has-success .input-group-addon {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+  border: none;
+}
+.my-app-name-container .has-warning .input-group-addon {
+  border: none;
+}
+.my-app-name-container .has-error .input-group-addon {
+  border: none;
+}
+.my-app-name-container .input-group-addon {
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.5); /* shadow */
+}
+
+/* navbar */
+.my-app-name-container .navbar {
+  border-radius: 0;
+  background-color: #03588C;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0;
+  }
+}
+.my-app-name-container .navbar-inverse .navbar-nav > li > a,
+.my-app-name-container .navbar-inverse .navbar-nav .dropdown-toggle {
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 100%;
+}
+.my-app-name-container .navbar-text,
+.my-app-name-container .navbar-inverse .navbar-text  {
+  color: #FFFFFF;
+}
+/* navbar-default */
+.my-app-name-container .navbar-default {
+  border-color: transparent;
+}
+
+.my-app-name-container .navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+.my-app-name-container .navbar-default .navbar-toggle:hover,
+.my-app-name-container .navbar-default .navbar-toggle:focus {
+  background-color: #046DAF;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* button shadow */
+}
+
+.my-app-name-container .navbar-default .navbar-nav > .active > a,
+.my-app-name-container .navbar-default .navbar-nav > .active > a:hover,
+.my-app-name-container .navbar-default .navbar-nav > .active > a:focus {
+  color: #9999FF;
+  background-color: #E7E7E7;
+}
+
+/* navbar-nav */
+.my-app-name-container .navbar-default .navbar-nav > li > a {
+  color: #CCCCFF;
+}
+.my-app-name-container .navbar-default .navbar-nav > li > a:hover {
+  color: #FFFFFF;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* button shadow */
+  background-color: #046DAF;
+}
+
+/* navbar-toggle */
+.my-app-name-container .navbar-toggle {
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.my-app-name-container .navbar-toggle:focus {
+  background-color: inherit;
+}
+
+/* navbar-inverse */
+.my-app-name-container .navbar-inverse {
+  border-color: transparent;
+}
+.my-app-name-container .navbar-inverse .navbar-toggle {
+  border-color: transparent;
+}
+.my-app-name-container .navbar-inverse .navbar-toggle:hover,
+.my-app-name-container .navbar-inverse .navbar-toggle:focus {
+  background-color: #046DAF;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* button shadow */
+}
+
+.my-app-name-container .navbar-inverse .navbar-collapse,
+.my-app-name-container .navbar-inverse .navbar-form {
+  border-color: transparent;
+}
+.my-app-name-container .navbar-inverse .navbar-nav > .open > a,
+.my-app-name-container .navbar-inverse .navbar-nav > .open > a:hover,
+.my-app-name-container .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: inherit;
+}
+
+.my-app-name-container a:focus {
+  outline: none;
+}
+/* header navbar */
+.my-app-name-container .nav.navbar-nav.navbar-right li {
+  border-bottom: 4px solid transparent;
+}
+.my-app-name-container .nav.navbar-nav.navbar-right .active {
+  border-bottom: 4px solid #046DAF;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.5); /* shadow */
+}
+.my-app-name-container .nav.navbar-nav.navbar-right .active a {
+  background-color: #046DAF;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .navbar-right .dropdown > span {
+  display: inline-block;
+  margin-top: 15px;
+  width: 100%;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .navbar-right .dropdown {
+  height: 54px;
+  padding: 0 15px;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .navbar-right .dropdown .caret {
+  margin-top: 0;
+}
+.my-app-name-container .nav.navbar-nav.navbar-right li:hover,
+.my-app-name-container .nav.navbar-nav.navbar-right li:focus,
+.my-app-name-container .nav.navbar-nav.navbar-right li .active,
+.my-app-name-container .nav.navbar-nav.navbar-right li .active:hover,
+.my-app-name-container .nav.navbar-nav.navbar-right li .active:focus {
+  border-bottom: 4px solid #FFFFFF;
+  background-color: #046DAF;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.5); /* shadow */
+  cursor: pointer;
+}
+.my-app-name-container .row.hidden-xs .nav.navbar-nav.navbar-right li:hover {
+  border-bottom: 4px solid transparent;
+}
+.my-app-name-container header {
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown-menu {
+  background-color: #035E96;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5); /* shadow */
+  border-radius: 0;
+  border: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open li,
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open a {
+  border-bottom: transparent;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open ul:hover,
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open li:hover,
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open a:hover {
+  background-color: #046DAF;
+  border: #046DAF;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open ul:hover {
+  box-shadow: 0 7px 7px rgba(0,0,0,0.5); /* shadow */
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open ul:active,
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open li:active,
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open a:active {
+  background-color: #047DC8;
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown.open ul:active {
+  box-shadow: 0 9px 9px rgba(0,0,0,0.5); /* shadow */
+}
+.my-app-name-container .navbar-inverse .navbar-collapse .dropdown .dropdown-menu a {
+  color: #FFFFFF;
+}
+
+/* form-control background */
+.my-app-name-container .form-control[disabled],
+.my-app-name-container .form-control[readonly],
+.my-app-name-container fieldset[disabled] .form-control {
+  background-color: #FFFFFF;
+}
+.my-app-name-container .form-control[disabled],
+.my-app-name-container fieldset[disabled] .form-control {
+  cursor: default;
+}
+
+/* form-control input-group */
+@-moz-document url-prefix() {
+ .my-app-name-container .input-group-btn .form-control {
+  width: 160px;
+ }
+ .my-app-name-container .actionForm .input-group .input-group-btn .form-control {
+  width: 46px;
+ }
+}
+
+/* modal window */
+.modal-open .modal-dialog .modal-content {
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+/* select material */
+.my-app-name-container .panel-heading .form-control.select,
+.my-app-name-container #group, 
+.my-app-name-container.container-fluid .modal-body select {
+  width: 100%;
+  height: 33px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+  border: transparent;
+  -webkit-appearance: none;
+  background-image: url('../images/arrow.png');
+  background-position: right center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  line-height: 1em;
+  /* for FF */
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  /* for IE */
+  -ms-appearance: none;
+  appearance: none !important;
+}
+
+.my-app-name-container #group  {
+  background-image: url('../images/arrow.png');
+}
+
+/* uib-daypicker */
+.my-app-name-container .uib-datepicker-popup {
+  color: red;
+}
+.my-app-name-container .uib-datepicker-popup.dropdown-menu {
+  color: #000000;
+}
+.my-app-name-container .uib-datepicker-popup .btn-group .btn, 
+.my-app-name-container .uib-datepicker-popup .btn.btn-success{
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.my-app-name-container .uib-datepicker-popup .btn.btn-sm.btn-success.pull-right {
+  height: 28px;
+}
+.my-app-name-container .uib-datepicker-popup .btn-danger {
+  margin-left: 5px;
+}
+.my-app-name-container .uib-datepicker-popup .btn-default,
+.my-app-name-container .uib-datepicker .btn-default.active,
+.my-app-name-container .uib-daypicker .btn-default,
+.my-app-name-container .uib-monthpicker .btn-default,
+.my-app-name-container .uib-yearpicker .btn-default {
+  background-color: #A9D0F5;
+}
+.my-app-name-container .uib-datepicker-popup .btn-default:hover,
+.my-app-name-container .uib-daypicker .btn-default:hover,
+.my-app-name-container .uib-monthpicker .btn-default:hover,
+.my-app-name-container .uib-yearpicker .btn-default:hover {
+  background-color: #CEE3F6;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
+.my-app-name-container .uib-daypicker .btn-default:active,
+ .my-app-name-container .uib-monthpicker .btn-default:active,
+ .my-app-name-container .uib-yearpicker .btn-default:active {
+  background-color: #CEE3F6;
+  box-shadow: 0 7px 7px rgba(0,0,0,0.5);
+}
+/* checkbox */
+.my-app-name-container .checkbox input {
+    display: none;
+}
+.my-app-name-container input[type="checkbox"] + label {
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 12px 4px 0 0;
+    vertical-align: middle;
+    padding-left: 30px;
+    background: url(../images/checkbox_empty.png) left 1px no-repeat;
+    cursor: pointer;
+}
+.my-app-name-container input[type="checkbox"]:checked + label {
+  background: url(../images/checkbox_checked.png) left 1px no-repeat;
+}
+/* images testplayer */
+.my-app-name-container .checkbox .img-responsive {
+  border: 1px solid #03588C;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5); /* shadow */
+} 
+/* timer */
+.my-app-name-container .timer {
+  color: #FFFFFF;
+  font-weight: 900;
+  font-family: Verdena, sans-serif;
+  font-size: 1.4em;
+}
+.my-app-name-container .panel-body .text-center>span {
+  color: #FFFFFF;
+}
+.my-app-name-container .glyphicon.glyphicon-time {
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+}
+.my-app-name-container .panel-body .text-center {
+  margin-bottom: 10px;
+}
+.my-app-name-container .container .panel.panel-primary .panel-body .row p {
+  margin-left: 40px;
+}
+
+/* test image select buttom */ 
+.my-app-name-container .panel-primary .panel-heading .row .col-md-3 .col-md-12.form-group {
+  padding-left: 0;
+}
+/* image in answers for admin */ 
+.my-app-name-container .img-responsive.img-thumbnail {
+  border-radius: 0;
+}
+/* test report for admins*/
+.my-app-name-container .panel-body .table-condensed .clip .test-report-data {
+  padding-left: 0;
+}
+.my-app-name-container .panel-body .table-condensed .clip .test-report-answer {
+  margin-left: 20px;
+}
+.my-app-name-container .panel-body .table-condensed .clip .test-report-question  {
+  font-weight: 600;
+}

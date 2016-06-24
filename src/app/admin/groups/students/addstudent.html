@@ -1,0 +1,112 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="my-app-name-container panel panel-primary students">
+    <div class="panel-heading">
+        <h3 ng-if="student.addElements">Реєстрація нового студента</h3>
+        <h3 ng-if="student.showElements">Студент {{student.newStudent.student_name}} {{student.newStudent.student_surname}}</h3>
+        <h3 ng-if="student.editElements">Редагування інформації студента</h3>
+    </div>
+    <div class="panel-body">
+        <form name="actionForm" ng-submit="student.addOrEdit()">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                    <span ng-if="student.editElement || student.addElements" class="btn btn-info btn-file">
+                        <i class="glyphicon glyphicon-picture"></i> Обрати фото
+                        <input ng-if="student.editElement || student.addElements" image-load="student.newStudent.photo" ng-model="student.newStudent.photo" type="file"/>
+                    </span>
+                        <img ng-src="{{student.newStudent.photo}}" id="studentImage" height="250" width="250" alt="Зображення">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <div>
+                        <label for="PIB">ПІБ</label>
+                        <div id="PIB" class="form-group">
+                            <input name="studentSurname" ng-required="true" ng-pattern="/^[А-ЯІЄЇҐ][А-ЯІЄЇҐа-яієїґ'-]*$/" ng-disabled="student.disableInputs" class="form-control" type="text" ng-model="student.newStudent.student_surname" placeholder="Прізвище"/>
+                                <span class="error-message" ng-show="actionForm.studentSurname.$dirty && actionForm.studentSurname.$invalid">
+                                Помилка: некоректні дані
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <input ng-required="true" ng-pattern="/^[А-ЯІЄЇҐ][а-яієїґ]*$/" name="studentName" id="studentName" ng-disabled="student.disableInputs" class="form-control" type="text" ng-model="student.newStudent.student_name" placeholder="Ім'я"/>
+                             <span class="error-message" ng-show="actionForm.studentName.$dirty && actionForm.studentName.$invalid">
+                                Помилка: некоректні дані
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <input ng-required="true" ng-pattern="/^[А-ЯІЄЇҐ][а-яієїґ]*$/" name="studentFname" ng-disabled="student.disableInputs" class="form-control" type="text" ng-model="student.newStudent.student_fname" placeholder="По-батькові"/>
+                             <span class="error-message" ng-show="actionForm.studentFname.$dirty && actionForm.studentFname.$invalid">
+                                Помилка: некоректні дані
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="group">Група</label>
+                        <select ng-options="group.group_id as group.group_name for group in student.groups" ng-disabled="student.disableInputs" ng-model="student.newStudent.group_id" class="form-control select" id="group">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <div class="input-group">
+                            <input ng-disabled="student.disableInputs" id="password" name="password" class="form-control" ng-model="student.newStudent.plain_password" placeholder="пароль"/>
+                        <span class="input-group-btn">
+                        <button ng-disabled="student.disableInputs" type="button" class="form-control" ng-click="student.getRandomPas()">Згенерувати пароль</button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label for="gradebook_id">Номер залікової книжки</label>
+                        <input ng-disabled="student.disableInputs" id="gradebook_id" class="form-control" type="text" ng-model="student.newStudent.gradebook_id" placeholder="номер залікової книжки"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div ng-if="student.additionalInputs" class="form-group">
+                        <label for="email">E-mail</label>
+                        <input name="studentMail" ng-required="true" ng-pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])$/" id="email" class="form-control" type="text" ng-model="student.newStudent.email" placeholder="email"/>
+                        <span class="error-message" ng-show="actionForm.studentMail.$dirty && actionForm.studentMail.$invalid">
+                               Помилка: некоректні дані
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div ng-if="student.additionalInputs" class="form-group">
+                        <label for="login">Нікнейм студента</label>
+                        <input id="login" class="form-control" type="text" ng-model="student.newStudent.username" placeholder="e.x. olexandr20"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div>
+                        <button type="button"  ui-sref="admin.student({group_id: student.group_id, content_type: 'edit', student_id: student.student_id})" ng-if="student.showElements" class="btn btn-info pull-right"
+                                ng-click="student.editFormAppear()">Редагувати</button>
+                    </div>
+                    <div>
+                        <button type="submit" ng-if="student.editElements" id="submit1" class="btn btn-success pull-right" ng-disabled="student.allowAdd()">Зберегти зміни</button>
+                    </div>
+                    <div>
+                        <button type="submit" ng-if="student.addElements" id="submit" class="btn btn-success pull-right" ng-disabled="student.allowAdd()" ng-click="student.reset(actionForm)">Зберегти</button>
+                    </div>
+                    <div>
+                        <button type="button" ng-if="student.editElements" class="btn btn-danger pull-right" ui-sref="admin.student({group_id: student.group_id, content_type: 'show', student_id: student.student_id})">Скасувати</button>
+                    </div>
+                    <div>
+                        <button type="button" ng-if="student.addElements" class="btn btn-danger pull-right" ui-sref="admin.students({group_id: student.group_id})">Скасувати</button>
+                    </div>
+                    <div>
+                        <button type="button" ng-if="student.showElements" class="btn btn-info pull-right" ui-sref="admin.students({group_id: student.group_id})">Список студентів</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

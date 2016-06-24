@@ -1,0 +1,53 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <h4>Детальна інформація про проходження тестування</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">Студент: <span class="test-detailes-enforce">{{::details.detail.student_surname}}&nbsp{{::details.detail.student_name}}
+                &nbsp{{::details.detail.student_fname}}</span></div>
+            <div class="col-xs-6">Назва тесту: <span class="test-detailes-enforce">{{::details.detail.test_name}}</span></div>
+            <div class="col-xs-3">Дата: <span class="test-detailes-enforce">{{::details.detail.session_date}}</span></div>
+            <div class="col-xs-3">Рейтинг: <span class="test-detailes-enforce">{{::details.detail.result}}</span></div>
+            <div class="col-xs-3">Початок тесту: <span class="test-detailes-enforce">{{::details.detail.start_time}}</span></div>
+            <div class="col-xs-3">Кінець тесту: <span class="test-detailes-enforce">{{::details.detail.end_time}}</span></div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table table-striped table-condensed">
+            <tbody>
+            <thead>
+            <tr>
+                <th class="clip header" ng-repeat="headerElement in details.headElements">
+                    {{::headerElement}}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-class-odd="'odd'" ng-repeat="question in details.detail.questionsList | orderBy:'question_text'">
+                <td class="clip col-xs-10">
+                    <ul class="test-report-data">
+                        <span class="test-report-question">{{::question.question.question_text}}</span>
+                        <li class="test-report-answer" ng-repeat="answer in question.answers | orderBy:'answer_text'">
+                            <span>{{::answer.answer_text}}</span>
+                            <img ng-hide="answer.attachment==='' || answer.attachment==='added'" class="img-responsive"
+                                 ng-src="{{answer.attachment}}" width="400" height="200" alt="Зображення"/>
+                        </li>
+                    </ul>
+                </td>
+                <td class="clip col-xs-2" ng-if="question.trueAnswer===1">
+                    <i class="glyphicon glyphicon-ok"> </i> &nbsp Вірно
+                </td>
+                <td class="clip col-xs-2" ng-if="question.trueAnswer===0">
+                    <i class="glyphicon glyphicon-remove"></i> &nbsp Невірно
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

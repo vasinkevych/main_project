@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container">
+    <div ui-view>
+<!--Spinner-->
+        <div id="loaderDiv" spinner class="hidden">
+            <img src="images/spinner.gif" class="ajax-loader"/>
+        </div>
+<!--Content-->
+        <div class="my-app-name-container panel panel-primary">
+            <div class="panel-heading">
+                <h3>Вітаємо в системі тестування!</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <img ng-src="{{user.user.photo}}" height="250" width="250" alt="Фото">
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <h4>{{user.user.student_name}} {{user.user.student_surname}}</h4>
+                        Група: <strong>{{user.group.group_name}}</strong>
+                        <br>
+                        Номер залікової книжки: <strong>{{user.user.gradebook_id}}</strong>
+                    </div>
+                    <div class="col-xs-12 col-md-4" ng-if="user.calendarLoaded">
+                        <uib-datepicker ng-model="dt" datepicker-options="user.options"></uib-datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

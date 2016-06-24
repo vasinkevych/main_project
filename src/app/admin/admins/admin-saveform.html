@@ -1,0 +1,60 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="admins my-app-name-container">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ adminSave.kindOfSave }}</h3>
+    </div>
+    <form name="saveForm" ng-submit="adminSave.save()">
+        <div class="modal-body">
+            <input type="text"
+                   class="form-control form-group"
+                   name="username"
+                   placeholder="login"
+                   ng-model="adminSave.admin.username"
+                   ng-maxlength="{{adminSave.maxUsernameLength}}"
+                   validate
+                   required>
+            <input type="email"
+                   class="form-control form-group"
+                   name="email" 
+                   placeholder="e-mail"
+                   ng-model="adminSave.admin.email"
+                   validate
+                   required>
+            <input type="password"
+                   class="form-control form-group password"
+                   name="newPassword"
+                   placeholder="введіть новий пароль"
+                   ng-model="adminSave.newPassword"
+                   ng-maxlength="{{adminSave.maxPasswordLength}}"
+                   same-field="{{adminSave.confirmPassword}}"
+                   required>
+            <input type="password"
+                   class="form-control form-group password"
+                   name="confirmPassword"
+                   placeholder="підтвердіть новий пароль"
+                   ng-model="adminSave.confirmPassword"
+                   same-field="{{adminSave.newPassword}}"
+                   required>
+            <p class="msg-info">Всі поля необхідні</p>
+            <p class="msg" ng-show="saveForm.username.$error.required && saveForm.username.$touched
+                || saveForm.email.$error.required && saveForm.email.$touched || saveForm.newPassword.$error.required && saveForm.newPassword.$touched
+                || saveForm.confirmPassword.$error.required && saveForm.confirmPassword.$touched">Заповніть необхідні поля</p>
+            <p class="msg" ng-show="saveForm.username.$error.alreadyExist">Такий login вже існує</p>
+            <p class="msg" ng-show="saveForm.username.$error.maxlength">Макс. довжина login {{adminSave.maxUsernameLength}}</p>
+            <p class="msg" ng-show="saveForm.email.$error.validText && saveForm.email.$touched">Невалідний email</p>
+            <p class="msg" ng-show="saveForm.email.$error.alreadyExist">Такий e-mail вже існує</p>
+            <p class="msg" ng-show="saveForm.newPassword.$error.maxlength">Макс. довжина пароля {{adminSave.maxPasswordLength}}</p>            
+            <p class="msg" ng-show="saveForm.confirmPassword.$error.sameField || saveForm.newPassword.$error.sameField">Паролі не співпадають</p>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" title="Зберегти" ng-disabled="saveForm.$invalid">
+                <i class="glyphicon glyphicon-floppy-saved"></i> 
+            </button>
+            <button type="reset" class="btn btn-danger" title="Відмінити" ng-click="adminSave.cancel()">
+                <i class="glyphicon glyphicon-floppy-remove"></i>
+            </button>
+        </div>
+    </form>
+</div>

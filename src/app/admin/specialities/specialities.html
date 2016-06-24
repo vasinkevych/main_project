@@ -1,0 +1,90 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="panel panel-primary specialities">
+    <div class="panel-heading">
+        <!--SEARCH ADD-BUTTON-->
+	<div class="row">
+		<div class="title col-md-3 col-sm-4 col-xs-6">Спеціальності</div>
+		<div class="pull-right">
+			<button class="add-entity btn btn-success" title="Додати спеціальність" ng-click="specialities.showSaveForm()">
+				<i class="glyphicon glyphicon-plus"></i>
+			</button>
+		</div>
+		<div class="search col-md-3 col-sm-4 col-xs-4 pull-right">
+			<input class="form-control" type="text" placeholder="Пошук на сторінці" ng-model="search">
+		</div>
+        </div>
+        <!--SAVE FORM-->
+        <form name="saveForm" class="row" uib-collapse="specialities.saveFormCollapsed" ng-submit="specialities.saveSpeciality()">
+            <div class="col-md-3">
+                <input class="form-control" name="specialityName" type="text" placeholder="назва (обов'язково!)" 
+                	ng-model="specialities.speciality.speciality_name"
+                	ng-minlength="{{specialities.minNameLength}}"
+                	ng-maxlength="{{specialities.maxNameLength}}"
+                	required validate>
+                <p ng-show="saveForm.specialityName.$error.maxlength">Макс. довжина назви {{specialities.maxNameLength}}!</p>
+                <p ng-show="saveForm.specialityName.$error.minlength">Мін. довжина назви {{specialities.minNameLength}}!</p>
+                <p ng-show="saveForm.specialityName.$error.validText">Назва має містити хоча б одну літеру!</p>
+                <p ng-show="saveForm.specialityName.$error.alreadyExist && saveForm.specialityName.$dirty">Така назва вже існує!</p>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" name="specialityCode" type="text" placeholder="код (обов'язково!)"
+                	ng-model="specialities.speciality.speciality_code"
+                	required validate>
+                <p ng-show="saveForm.specialityCode.$error.validText">Приклад коду: 6.123456, 7.12345678, 8.12345678</p>
+                <p ng-show="saveForm.specialityCode.$error.alreadyExist && saveForm.specialityCode.$dirty">Такий код вже існує!</p>
+            </div>
+            <div class="col-md-6 pull-right">
+                <button type="submit" class="btn btn-success" title="Зберегти" ng-disabled="saveForm.$invalid">
+                    <i class="glyphicon glyphicon-floppy-saved"></i>
+                </button>
+                <button type="reset" class="btn btn-danger" title="Відмінити" ng-click="specialities.hideSaveForm()">
+                    <i class="glyphicon glyphicon-floppy-remove"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!--DATA TABLE-->
+    <div class="panel-body">
+        <table class="table table-striped table-condensed">
+            <thead>
+		<tr>
+			<th class="clip" class="header" ng-repeat="headerElement in specialities.headElements">{{::headerElement}}</th>
+			<th></th>
+		</tr>
+            </thead>
+            <tbody>
+		<tr ng-class-odd="'odd'" ng-repeat="speciality in specialities.list | orderBy: 'speciality_code' | filter: search">
+			<td>{{::speciality.speciality_name}}</td>
+			<td>{{::speciality.speciality_code}}</td>
+			<td class="pull-right">
+				<button class="btn btn-info" title='Перейти до груп спеціальності "{{speciality.speciality_name}}"'
+					ui-sref="admin.groupsByEntity({entity: 'speciality', entity_id: speciality.speciality_id})">
+					<i class="fa fa-list"></i>
+				</button>
+				<button class="btn btn-info" title='Редагувати "{{::speciality.speciality_name}}"'
+					ng-click="specialities.showSaveForm(speciality)">
+					<i class="glyphicon glyphicon-pencil"></i>
+				</button>
+				<button class="btn btn-info" title='Видалити "{{::speciality.speciality_name}}"'
+					ng-click="specialities.removeSpeciality(speciality)">
+					<i class="glyphicon glyphicon-remove"></i>
+				</button>
+			</td>
+		</tr>
+            </tbody>
+        </table>
+        <uib-pagination ng-show="specialities.totalItems > specialities.amountRecords"
+                total-items="specialities.totalItems"
+                ng-change="specialities.pageChanged()"
+                ng-model="specialities.currentPage"
+                max-size="specialities.maxSize"
+                class="my-pagination"
+                boundary-link-numbers="true"
+                rotate="false"
+                previous-text="&#xf048;"
+                next-text="&#xf051;">
+        </uib-pagination>
+    </div>
+</div>

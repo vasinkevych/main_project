@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="container">
+    <div ui-view>
+        <div id="loaderDiv" spinner class="hidden">
+            <img src="images/spinner.gif" class="ajax-loader"/>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                <div>
+                    <div class="col-xs-12 col-sm-6" id="btn_admins">
+                        <button class="btn btn-primary btn-block" ui-sref="admin.admins">
+                            <i class="fa fa-users on fa-square-o"></i>&nbsp; Адміністратори
+                        </button>
+                    </div>
+                    <br class="visible-xs"/><br class="visible-xs"/>
+                    <div class="col-xs-12 col-sm-6" id="btn_reports">
+                        <button class="btn btn-primary btn-block" ui-sref="admin.reports">
+                            <i class="fa fa-file-text-o"></i>&nbsp; Сформувати результати
+                        </button>
+                    </div>
+                </div>
+                <br/><br/>
+                <div>
+                    <table class="table table-striped">
+                        <caption>Статистика системи</caption>
+                        <tr ng-repeat="stat in admin.statistics">
+                            <td>Зареєстровано {{::stat.title}}</td>
+                            <td>{{::stat.count}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

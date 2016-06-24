@@ -1,0 +1,45 @@
+<div id="loaderDiv" spinner class="hidden">
+    <img src="images/spinner.gif" class="ajax-loader"/>
+</div>
+<div class="panel panel-primary reports">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="title col-xs-12">Формування результатів тестування</div>
+            <br/><br/>
+        </div>
+
+        <div ng-include="'app/admin/reports/form-reports.html'" ></div>
+    </div>
+
+    <div class="panel-body">
+        <p ng-if="reports.results != undefined && !reports.results.length">Результатів немає</p>
+        <table ng-if="reports.results.length" class="table table-striped table-condensed">
+            <tbody>
+                <thead>
+                    <tr>
+                        <th class="clip header" ng-repeat="headerElement in reports.headElements">
+                            {{::headerElement}}
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+            <tbody>
+            <tr ng-class-odd="'odd'" ng-repeat="result in reports.results | orderBy:'student_surname'">
+                <td class="clip">{{::result.student_surname}}&nbsp{{::result.student_name}}
+                    &nbsp{{::result.student_fname}}</td>
+                <td class="clip">{{::result.result}}</td>
+                <td class="clip">{{::result.session_date | date: "dd MMMM yyyy"}}</td>
+                <td class="clip">{{::result.start_time}}</td>
+                <td class="clip">{{::result.end_time}}</td>
+                <td class="clip">
+                    <button class="btn btn-info pull-right" title="Більше інформації"
+                            ui-sref="admin.reportDetails({session_id: result.session_id, student_id: result.student_id,
+                            test_id: result.test_id})" ng-click="reports.qwerty()">
+                        <i class="glyphicon glyphicon-wrench"></i> Деталіше
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

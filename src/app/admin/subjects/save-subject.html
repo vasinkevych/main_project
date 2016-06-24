@@ -1,0 +1,37 @@
+<form name="saveForm" class="row" uib-collapse="subjects.formCollapsed" ng-submit="subjects.saveEntity()">
+    <div class="col-md-8">
+        <div class="col-md-6">
+            <input class="form-control" name="subjectname" type="text" ng-model="subjects.subject.subject_name"
+                   placeholder="Введіть назву предмету..." ng-minlength="3" ng-maxlength="100" required>
+            <div ng-messages="saveForm.subjectname.$error" ng-if="saveForm.subjectname.$dirty">
+                <div ng-message="required">
+                    <strong>Поле обов'язкове для заповнення</strong>
+                </div>
+                <div ng-message-exp="['minlength', 'maxlength']">
+                    <strong>Кількість символів від 3 до 100</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" name="subjectdesc" type="text" ng-model="subjects.subject.subject_description"
+                   placeholder="Введіть опис предмету..." ng-minlength="3" ng-maxlength="200" required>
+            <div ng-messages="saveForm.subjectdesc.$error" ng-if="saveForm.subjectdesc.$dirty">
+                <div ng-message="required">
+                    <strong>Поле обов'язкове для заповнення</strong>
+                </div>
+                <div ng-message-exp="['minlength', 'maxlength']">
+                    <strong>Кількість символів від 3 до 200</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 pull-right">
+        <button type="submit" class="btn btn-success" ng-disabled="saveForm.$invalid" title="Зберегти предмет">
+            <i class="glyphicon glyphicon-floppy-saved"></i>
+        </button>
+        <button type="reset" class="btn btn-danger" title="Відмінити" ng-click="subjects.hideForm()">
+            <i class="glyphicon glyphicon-floppy-remove"></i>
+        </button>
+    </div>
+</form>

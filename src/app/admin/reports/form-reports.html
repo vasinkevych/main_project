@@ -1,0 +1,51 @@
+<form name="reportsForm" class="row" ng-submit="reports.createReport()">
+    <div class="col-md-10">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <select class="form-control select" name="selectedSubject" ng-model="reports.report.selectedSubject"
+                            ng-options="subject as subject.subject_name for subject in reports.subjectsList"
+                            ng-change="reports.updateSelectpickerBySubject()" required>
+                        <option value="">Виберіть назву предмету</option>
+                    </select>
+                    <div ng-messages="reportsForm.selectedSubject.$error" ng-if="reportsForm.selectedSubject.$dirty">
+                        <div ng-message="required">
+                            <strong>Поле обов'язкове для заповнення</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <select class="form-control select" name="selectedGroup" ng-model="reports.report.selectedGroup"
+                            ng-options="group as group.group_name for group in reports.groupsList" required>
+                        <option value="">Виберіть групу</option>
+                    </select>
+                    <div ng-messages="reportsForm.selectedGroup.$error" ng-if="reportsForm.selectedGroup.$dirty">
+                        <div ng-message="required">
+                            <strong>Поле обов'язкове для заповнення</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <select class="form-control select" name="selectedTest" ng-model="reports.report.selectedTest"
+                            ng-options="test as test.test_name for test in reports.testsList" required>
+                        <option value="">Виберіть назву тесту</option>
+                    </select>
+                    <div ng-messages="reportsForm.selectedTest.$error" ng-if="reportsForm.selectedTest.$dirty">
+                        <div ng-message="required">
+                            <strong>Поле обов'язкове для заповнення</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 pull-right">
+        <button type="submit" class="btn btn-success" title="Сформувати" ng-disabled="reportsForm.$invalid">
+            <i class="glyphicon glyphicon-floppy-saved"></i>
+        </button>
+        <button type="reset" class="btn btn-danger" title="Відмінити" ng-click="reports.cancelReport()">
+            <i class="glyphicon glyphicon-floppy-remove"></i>
+        </button>
+    </div>
+</form>

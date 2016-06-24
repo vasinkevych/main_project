@@ -1,0 +1,26 @@
+<div class="auth-container">
+    <div class="form-container">
+        <div class="title col-md-8">
+            <p>Welcome to "D-tester" </p>
+        </div>
+        <div class="col-md-4 clearfix">
+            <form name="authform" class="form-horizontal" ng-submit="auth.authentication()">
+                <div class="form-group" >
+                    <p class="alert-warning" uib-collapse="auth.isCollapsed">Невірний пароль. Будь ласка спробуйте ще!</p>
+                    <input type="text" name="username" class="auth-input-element form-control" placeholder="Логін"
+                           ng-model="auth.credentials.username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="auth-input-element form-control" placeholder="Пароль"
+                           ng-model="auth.credentials.password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="auth-input-element btn btn-default btn-block"
+                            ng-disabled="authform.$invalid">
+                        <i class="fa fa-sign-in"></i> Увійти
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

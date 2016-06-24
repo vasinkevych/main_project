@@ -1,0 +1,152 @@
+/*  Style and alignment login form  */
+html, body, body>div, .auth-container{
+    height: 100%;
+}
+.auth-container{
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.title{
+    font-size: 26px;
+}
+.form-container{
+    margin-right:15%;
+}
+.auth-input-element{
+    border-radius: 0;
+    border: 1px solid #000;
+    background-color: #f6f1ed;
+    min-width: 300px;
+}
+.alert-warning{
+    min-width: 300px;
+    opacity: 0.7;
+    margin: 5px 0;
+    padding: 5px;
+}
+/*  For navbar  */
+header .navbar-header .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/*  For form validation */
+.admins .msg-info {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-right: 30px;
+}
+.admins .msg {
+    margin-left: 30px;
+    color: #d1332e;
+}
+/*.panel textarea.ng-invalid, .panel input.ng-invalid,*/
+.auth-container input.ng-invalid, .admins input.ng-invalid {
+    background-color: #ffcccc;
+}
+/*.panel textarea.ng-untouched, .panel input.ng-untouched,*/
+.auth-container input.ng-untouched, .admins input.ng-untouched {
+    background-color: #ffffff;
+}
+/*  Admins  */
+.online {
+    color: #00ccff;
+}
+.admins .add-entity , .specialities .add-entity  {
+	margin-right: 25px !important;
+}
+.admins .panel-heading .search, .specialities .panel-heading .search {
+	padding-right: 5px;
+}
+.admins .modal-body input {
+    margin-left: 25px;
+    width: 90%;
+}
+/*  For image load button  */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+/*  For report form  */
+.panel .panel-heading h4 {
+    padding-left: 10px;
+}
+/*  alignment title in panel heading with tbody  */
+.panel .panel-heading h3 {
+    padding-left: 15px;
+}
+/*  For testplayer  */
+.panel-body .btn-toolbar .btn {
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    width: 44px;
+}
+#finish {
+    margin-bottom: 5px;
+}
+/*  For spinner  */
+#loaderDiv {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1100;
+    background-color: white;
+    opacity: .6;
+}
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px; /* -1 * image height / 2 */
+    display: block;
+}
+.hidden{display:none !important}
+/* For datepicker */
+.full button span {
+    background-color: limegreen;
+    border-radius: 12px;
+    color: black;
+}
+.partially button span {
+    background-color: orange;
+    border-radius: 12px;
+    color: black;
+}
+/*  For select in test-player */
+.modal-body select {
+    padding-left: 10px;
+}
+.students .search {
+    padding-right: 0;
+}
+.students .plus {
+    padding-left: 5px;
+}
+.container .row #btn_admins {
+    padding-left: 0;
+}
+.container .row #btn_reports {
+    padding-right: 0;
+}
