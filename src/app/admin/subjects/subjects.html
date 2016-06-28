@@ -24,14 +24,15 @@
             <tbody>
             <thead>
             <tr>
-                <th class="clip header" ng-repeat="headerElement in subjects.headElements">{{::headerElement}}</th>
+                <th class="clip header" ng-click="subjects.sortBy('subject_name')">Предмет <span class="sort" ng-show="subjects.propertyName === 'subject_name'" ng-class="{reverse: subjects.reverse}"></span></th>
+                <th class="clip header" ng-click="subjects.sortBy('subject_description')">Опис предмету <span class="sort" ng-show="subjects.propertyName === 'subject_description'" ng-class="{reverse: subjects.reverse}"></span> </th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-class-odd="'odd'" ng-repeat="subject in subjects.list | orderBy:'subject_name' | filter:search">
+            <tr ng-class-odd="'odd'" ng-repeat="subject in subjects.list | filter:search">
                 <td class="clip">{{::subject.subject_name}}</td>
-                <td class="clip">{{::subject.subject_description}}</a></td>
+                <td class="clip">{{::subject.subject_description}}</td>
                 <td class="pull-right">
                     <button class="btn btn-info" ui-sref="admin.tests({subject_id: subject.subject_id})"
                             title="Перейти до управління тестами"><i class="fa fa-list"></i> Tести

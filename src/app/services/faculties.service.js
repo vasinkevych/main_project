@@ -12,8 +12,7 @@
             getFaculties: getFaculties,
             saveFaculty: saveFaculty,
             removeFaculty: removeFaculty,
-            totalItems: totalItems,
-            getHeader: getHeader
+            totalItems: totalItems
         };
 
         return service;
@@ -97,10 +96,7 @@
                 .then(_successCallback, _errorCallback);
         }
 
-        function getHeader() {
 
-            return ["Назва факультету", "Опис факультету"];
-        }
     }
 
 })();

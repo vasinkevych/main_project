@@ -4,14 +4,14 @@
     angular.module("app.admin")
         .controller("FacultiesController", FacultiesController);
 
-    FacultiesController.$inject = ["facultiesService", "PAGINATION", "VALID", "MESSAGE", "customDialog"];
+    FacultiesController.$inject = ["RequestService", "TableHeadService", "PAGINATION", "VALID", "MESSAGE", "customDialog", "URL"];
 
-    function FacultiesController (facultiesService, PAGINATION, VALID, MESSAGE, customDialog) {
+    function FacultiesController (RequestService, TableHeadService, PAGINATION, VALID, MESSAGE, customDialog, URL) {
         var vm = this;
         vm.showSaveForm = showSaveForm;
         vm.hideSaveForm = hideSaveForm;
         vm.saveFormCollapsed = true;
-        vm.headElements = facultiesService.getHeader();
+        vm.headElements = TableHeadService.getFacultyHeader();
         vm.saveFaculty = saveFaculty;
         vm.removeFaculty = removeFaculty;
         vm.minNameLength = VALID.MIN_NAME_LENGTH;
@@ -21,14 +21,25 @@
         vm.currentPage = PAGINATION.CURRENT_PAGE;
         vm.currentRecordsRange = 0;
         vm.pageChanged = pageChanged;
+
+        var params = {
+            entity: URL.ENTITIES.FACULTY,
+            currentRecordsRange: vm.currentRecordsRange
+        };
+
         activate();
 
         function activate() {
-            facultiesService.totalItems().then(function(quantity) {
-                vm.totalItems = +quantity;
+
+            RequestService.totalItems(URL.ENTITIES.FACULTY).then(function(quantity) {
+                vm.totalItems = + quantity.numberOfRecords;
             });
-            facultiesService.getFacultiesRange(vm.currentRecordsRange).then(function(data) {
-                vm.list = data;
+            RequestService.getEntities(params).then(function(data) {
+                if (Array.isArray(data)) {
+                    vm.list = data;
+                } else {
+                    vm.list = [];
+                }
             });
         }
 
@@ -47,19 +58,26 @@
 
         function saveFaculty() {
             customDialog.openConfirmationDialog().then(function() {
-                facultiesService.saveFaculty(vm.faculty).then(function(res) {
-                    customDialog.openInformationDialog(MESSAGE.SAVE_SUCCSES, "Збережено").then(function() {
+                if (vm.faculty.faculty_id === undefined) {
+                    RequestService.addEntity(URL.ENTITIES.FACULTY, vm.faculty).then(function (data) {
                         activate();
-                        vm.hideSaveForm();
-                    });
-                });
+                        hideSaveForm();
+                        vm.faculty = {};
+                    })
+                } else {
+                    RequestService.editEntity(URL.ENTITIES.FACULTY, vm.faculty, vm.faculty.faculty_id).then(function (data) {
+                        activate();
+                        hideSaveForm();
+                        vm.faculty = {};
+                    })
+                }
             });
         }
 
         function removeFaculty(faculty) {
             var message;
             customDialog.openDeleteDialog().then(function() {
-                facultiesService.removeFaculty(faculty.faculty_id).then(function(res) {
+                RequestService.removeEntity(URL.ENTITIES.FACULTY, faculty.faculty_id).then(function(res) {
                     if (res.response.indexOf("error") > -1) {
                         customDialog.openInformationDialog(MESSAGE.DEL_SPEC_ERR, "Відхилено");
                     } else {
@@ -71,13 +89,9 @@
             });
         }
 
-        function getNextRange() {
-            vm.currentRecordsRange =(vm.currentPage - 1) * PAGINATION.ENTITIES_RANGE_ON_PAGE;
-        }
-
         function pageChanged(){
-            getNextRange();
-            facultiesService.getFacultiesRange(vm.currentRecordsRange).then(function(data) {
+            params.currentRecordsRange =(vm.currentPage - 1) *  PAGINATION.ENTITIES_RANGE_ON_PAGE;
+            RequestService.getEntities(params).then(function(data) {
                 vm.list = data;
             });
         }

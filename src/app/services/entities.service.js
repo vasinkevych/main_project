@@ -2,16 +2,12 @@
     "use strict";
 
     angular.module("app.user")
-        .factory("entityService", entityService);
+        .service("entityService", entityService);
 
     entityService.$inject = ["$http", "BASE_URL","URL"];
 
     function entityService($http, BASE_URL, URL) {
-        var service = {
-            getEntitiesById: getEntitiesById
-        };
-
-        return service;
+            this.getEntitiesById = getEntitiesById;
 
         function getEntitiesById(entity, idsArray) {
             var input = {

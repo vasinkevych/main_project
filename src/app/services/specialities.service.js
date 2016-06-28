@@ -2,21 +2,18 @@
     "use strict";
 
     angular.module("app.admin")
-        .factory("specialitiesService", specialitiesService);
+        .service("specialitiesService", specialitiesService);
 
     specialitiesService.$inject = ["$http", "$q", "BASE_URL", "URL", "PAGINATION"];
 
     function specialitiesService($http, $q, BASE_URL, URL, PAGINATION) {
-        var service = {
-            getSpecialitiesRange: getSpecialitiesRange,
-            getSpecialities: getSpecialities,
-            totalItems: totalItems,
-            saveSpeciality: saveSpeciality,
-            removeSpeciality: removeSpeciality,
-            getHeader: getHeader 
-        };
-
-        return service;
+        
+            this.getSpecialitiesRange = getSpecialitiesRange;
+            this.getSpecialities = getSpecialities;
+            this.totalItems = totalItems;
+            this.saveSpeciality = saveSpeciality;
+            this.removeSpeciality = removeSpeciality;
+            this.getHeader = getHeader;
 
         function _successCallback(result) {
 

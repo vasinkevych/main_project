@@ -2,22 +2,18 @@
     "use strict";
 
     angular.module("app.admin.subjects")
-        .factory("answersService", answersService);
+        .service("answersService", answersService);
 
     answersService.$inject = ["$http", "BASE_URL", "URL"];
 
     function answersService($http, BASE_URL, URL) {
-        var service = {
-            getAnswersByQuestion: getAnswersByQuestion,
-            saveAnswer: saveAnswer,
-            removeAnswer: removeAnswer,
-            getHeader: getHeader,
-            getTypeOfAnswer: getTypeOfAnswer,
-            disableChoice: disableChoice
-        };
-
-        return service;
-
+        this.getAnswersByQuestion = getAnswersByQuestion;
+        this.saveAnswer = saveAnswer;
+        this.removeAnswer = removeAnswer;
+        this.getHeader = getHeader;
+        this.getTypeOfAnswer = getTypeOfAnswer;
+        this.disableChoice = disableChoice;
+    
         function _successCallback(response) {
 
             return response.data;

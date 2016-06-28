@@ -4,55 +4,89 @@
     angular.module("app.admin.subjects")
         .controller("SubjectsController", SubjectsController);
 
-    SubjectsController.$inject = ["subjectsService", "PAGINATION", "customDialog"];
+    SubjectsController.$inject = ["RequestService", "orderByFilter", "URL", "PAGINATION", "customDialog"];
 
-    function SubjectsController (subjectsService, PAGINATION, customDialog) {
+    function SubjectsController (RequestService, orderBy, URL, PAGINATION, customDialog) {
         var vm = this;
-        vm.headElements = subjectsService.getHeader();
         vm.formCollapsed = true;
         vm.hideForm = hideForm;
         vm.showForm = showForm;
-        vm.saveEntity = saveEntity;
+        vm.saveEntity = saveSubject;
         vm.removeSubject = removeSubject;
         vm.entitiesPerPage = PAGINATION.ENTITIES_RANGE_ON_PAGE;
         vm.maxSize = PAGINATION.PAGES_SHOWN;
         vm.currentPage = 1;
         vm.currentRecordsRange = 0;
         vm.pageChanged = pageChanged;
+        //===================================================
+        // Sorting
+        vm.sortBy = sortBy;
+        vm.propertyName = "subject_name";
+        vm.reverse = true;
+        vm.list = [];
+
+         function sortBy (propertyName) {
+            vm.propertyName = propertyName;
+            console.log(propertyName);
+            vm.reverse = (propertyName !== null && vm.propertyName === propertyName)
+                ? !vm.reverse : false;
+             vm.list = orderBy(vm.list, vm.propertyName, vm.reverse, StringLengthComparator(vm.list));
+        };
+
+        function StringLengthComparator (list) {
+           //return list.sort(function (item1, item2) {
+        };
+
+        //===================================================
+
+        var params = {
+            entity: URL.ENTITIES.SUBJECT,
+            currentRecordsRange: vm.currentRecordsRange
+        };
+
         activate();
 
         function activate() {
-            subjectsService.totalItems().then(function (quantity) {
-                vm.totalItems = +quantity;
+
+            RequestService.totalItems(URL.ENTITIES.SUBJECT).then(function (quantity) {
+                vm.totalItems = + quantity.numberOfRecords;
                 if (vm.totalItems > PAGINATION.ENTITIES_RANGE_ON_PAGE) {
                     vm.showPagination = true;
                 } else {
                     vm.showPagination = false
                 }
             });
-            subjectsService.getSubjects(vm.currentRecordsRange).then(function (data) {
+            RequestService.getEntities(params).then(function (data) {
                 if (Array.isArray(data)) {
-                    vm.list = data;
+                    vm.list =  orderBy(data, vm.propertyName, vm.reverse, StringLengthComparator(data));
                 } else {
                     vm.list = [];
                 }
-            })}
+            })
+        }
 
         function hideForm() {
             vm.formCollapsed = true;
         }
 
-        function saveEntity () {
+        function saveSubject () {
             customDialog.openConfirmationDialog().then(function() {
-                subjectsService.saveSubject(vm.subject).then(function (data) {
-
-                    activate();
-                    hideForm();
-                    vm.subject = {};
-                })
+                if (vm.subject.subject_id === undefined) {
+                    RequestService.addEntity(URL.ENTITIES.SUBJECT, vm.subject).then(function (data) {
+                        activate();
+                        hideForm();
+                        vm.subject = {};
+                    })
+                } else {
+                    RequestService.editEntity(URL.ENTITIES.SUBJECT, vm.subject, vm.subject.subject_id).then(function (data) {
+                        activate();
+                        hideForm();
+                        vm.subject = {};
+                    })
+                }
             });
         }
- 
+
         function showForm(subject) {
             vm.formCollapsed = false;
             if (subject === undefined) {
@@ -64,17 +98,17 @@
 
         function removeSubject(subject) {
             customDialog.openDeleteDialog(subject).then(function(){
-                subjectsService.removeSubject(subject).then(function (res) {
+                RequestService.removeEntity(URL.ENTITIES.SUBJECT, subject.subject_id).then(function (res) {
                     activate();
-                })
+                });
             });
         }
 
-      
+
         function pageChanged () {
-            vm.currentRecordsRange =(vm.currentPage - 1) * vm.entitiesPerPage;
-            subjectsService.getSubjects(vm.currentRecordsRange).then(function (data) {
-                vm.list = data;
+            params.currentRecordsRange =(vm.currentPage - 1) * vm.entitiesPerPage;
+            RequestService.getEntities(params).then(function (data) {
+                vm.list = orderBy(data, vm.propertyName, vm.reverse, StringLengthComparator(data));
             });
         }
     }

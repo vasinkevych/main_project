@@ -5,9 +5,9 @@
         .factory("reportsService", reportsService);
 
     reportsService.$inject = ["$http", "$q", "BASE_URL", "URL", "groupsService", "studentsService", "testsService",
-        "subjectsService", "schedulesService", "questionsService"];
+        "RequestService", "schedulesService", "questionsService"];
 
-    function reportsService($http, $q, BASE_URL, URL, groupsService, studentsService, testsService, subjectsService,
+    function reportsService($http, $q, BASE_URL, URL, groupsService, studentsService, testsService, RequestService,
                             schedulesService) {
         var results = [];
         var testName = "";
@@ -35,7 +35,7 @@
 
         // get subjects for selectpicker in form
         function getSubjects() {
-            return subjectsService.getAllSubjects().then(_successCallback, _errorCallback);
+            return RequestService.getAllEntities().then(_successCallback, _errorCallback);
         }
 
         // update selectpicker Tests in form by choosing subject

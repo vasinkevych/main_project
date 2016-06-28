@@ -844,3 +844,14 @@
 .my-app-name-container .panel-body .table-condensed .clip .test-report-question  {
   font-weight: 600;
 }
+th {
+  cursor: pointer;
+}
+
+/*SORTING */
+.sort:after {
+  content: '\25b2';
+}
+.sort.reverse:after {
+  content: '\25bc';
+}

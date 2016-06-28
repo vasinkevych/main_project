@@ -4,9 +4,9 @@
     angular.module("app.admin.subjects")
         .controller("SchedulesController", SchedulesController);
 
-    SchedulesController.$inject = ['schedulesService', 'groupsService', 'subjectsService', '$stateParams', 'MESSAGE', 'customDialog'];
+    SchedulesController.$inject = ['schedulesService', 'groupsService', 'RequestService', '$stateParams', 'MESSAGE', 'customDialog', 'URL'];
 
-    function SchedulesController(schedulesService, groupsService, subjectsService, $stateParams, MESSAGE, customDialog) {
+    function SchedulesController(schedulesService, groupsService, RequestService, $stateParams, MESSAGE, customDialog, URL) {
         var vm = this;
         vm.schedule = {};
         vm.associativeGroups = {};
@@ -24,7 +24,7 @@
             } else {
                 schedulesService.getSchedulesForSubject(vm.entity_id).then(_applyDataCallback);
                 vm.schedule.subject_id = vm.entity_id;
-                subjectsService.getOneSubject(vm.entity_id)
+                RequestService.getOneEntity(URL.ENTITIES.SUBJECT, vm.entity_id)
                     .then(function(data) {
                         vm.subject = data;
                     })
@@ -66,7 +66,7 @@
                 vm.associativeGroups[+vm.groups[i].group_id] = vm.groups[i].group_name;
             }
         });
-        subjectsService.getAllSubjects().then(function(data) {
+        RequestService.getAllEntities("subject").then(function(data) {
             vm.subjects = data;
             for (var i = 0; i < vm.subjects.length; i++) {
                 vm.associativeSubjects[+vm.subjects[i].subject_id] = vm.subjects[i].subject_name;
